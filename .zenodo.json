@@ -1,0 +1,22 @@
+{
+  "title": "Stieltjes moment classification of Apéry polynomials",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "description": "Paper, LaTeX source and verification code for the Stieltjes moment classification of the Apéry polynomials. Paper and data: CC BY 4.0; code: MIT.",
+  "creators": [
+    {
+      "name": "Li, Brandon",
+      "affiliation": "Independent researcher, Great Neck, New York, USA"
+    }
+  ],
+  "language": "eng",
+  "keywords": [
+    "Apéry polynomials",
+    "Stieltjes moment problem",
+    "Legendre polynomials",
+    "elliptic integrals",
+    "Hankel matrices"
+  ],
+  "access_right": "open",
+  "license": "cc-by-4.0"
+}

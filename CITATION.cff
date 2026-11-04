@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "Please cite the paper when using the result or verification code."
+title: "Stieltjes moment classification of Apéry polynomials"
+type: software
+authors:
+  - family-names: Li
+    given-names: Brandon
+    email: brandon.li.gn@gmail.com
+    affiliation: "Independent researcher, Great Neck, New York, USA"
+repository-code: "https://github.com/brandonlign/apery-moments"
+license: MIT
+keywords:
+  - Apéry polynomials
+  - Stieltjes moment problem
+  - Legendre polynomials
+  - elliptic integrals
+  - Hankel matrices
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Li
+      given-names: Brandon
+  title: "Stieltjes moment classification of Apéry polynomials"
+  year: 2026
