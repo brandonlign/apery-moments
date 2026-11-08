@@ -1,0 +1,41 @@
+{
+  "status": "Non-interval numerical diagnostics passed; not a proof",
+  "mpmath_precision": 35,
+  "results": [
+    {
+      "r": "1.1",
+      "y": "0",
+      "direct_elliptic": "0.09823134387997818783492822702",
+      "dispersion_integral": "0.09823134387997818783492822702",
+      "absolute_error_below_1e-25": true
+    },
+    {
+      "r": "2",
+      "y": "-1",
+      "direct_elliptic": "0.04109362960409998703766460629",
+      "dispersion_integral": "0.04109362960409998703766460629",
+      "absolute_error_below_1e-25": true
+    },
+    {
+      "r": "2",
+      "y": "0",
+      "direct_elliptic": "0.04851230226737099065730162648",
+      "dispersion_integral": "0.04851230226737099065730162648",
+      "absolute_error_below_1e-25": true
+    },
+    {
+      "r": "2",
+      "y": "0.5",
+      "direct_elliptic": "0.05630507950352703830176265036",
+      "dispersion_integral": "0.05630507950352703830176265036",
+      "absolute_error_below_1e-25": true
+    },
+    {
+      "r": "10",
+      "y": "0",
+      "direct_elliptic": "0.009404128110168908415922391016",
+      "dispersion_integral": "0.009404128110168908415922391016",
+      "absolute_error_below_1e-25": true
+    }
+  ]
+}

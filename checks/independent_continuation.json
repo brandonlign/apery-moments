@@ -1,0 +1,199 @@
+{
+  "status": "PASS: floating-point ODE diagnostic only",
+  "method": "Hypergeometric ODE continuation from y=0; two upper paths and tolerances",
+  "rows": [
+    {
+      "r": 1.01,
+      "d": 1.01,
+      "interval": 1,
+      "height": 0.2,
+      "relative_error": 4.256694113724637e-11,
+      "tolerance_change": 4.783958119738353e-10
+    },
+    {
+      "r": 1.01,
+      "d": 1.01,
+      "interval": 1,
+      "height": 0.6,
+      "relative_error": 8.681815358088332e-11,
+      "tolerance_change": 6.088107475335481e-10
+    },
+    {
+      "r": 1.01,
+      "d": 2.02,
+      "interval": 2,
+      "height": 0.2,
+      "relative_error": 2.4888112837422753e-13,
+      "tolerance_change": 5.937885483290261e-11
+    },
+    {
+      "r": 1.01,
+      "d": 2.02,
+      "interval": 2,
+      "height": 0.6,
+      "relative_error": 7.225297447741853e-14,
+      "tolerance_change": 4.930099217786497e-11
+    },
+    {
+      "r": 1.01,
+      "d": 4.02,
+      "interval": 3,
+      "height": 0.2,
+      "relative_error": 3.7732609182855873e-13,
+      "tolerance_change": 2.1254672630393192e-10
+    },
+    {
+      "r": 1.01,
+      "d": 4.02,
+      "interval": 3,
+      "height": 0.6,
+      "relative_error": 1.6174887198357275e-13,
+      "tolerance_change": 9.410620095137595e-11
+    },
+    {
+      "r": 1.1,
+      "d": 1.1,
+      "interval": 1,
+      "height": 0.2,
+      "relative_error": 4.625205994272829e-14,
+      "tolerance_change": 2.8542676387395008e-11
+    },
+    {
+      "r": 1.1,
+      "d": 1.1,
+      "interval": 1,
+      "height": 0.6,
+      "relative_error": 1.0358575342963799e-13,
+      "tolerance_change": 8.629937924977403e-11
+    },
+    {
+      "r": 1.1,
+      "d": 2.2,
+      "interval": 2,
+      "height": 0.2,
+      "relative_error": 1.655623138994358e-13,
+      "tolerance_change": 6.508549340204802e-11
+    },
+    {
+      "r": 1.1,
+      "d": 2.2,
+      "interval": 2,
+      "height": 0.6,
+      "relative_error": 6.26948573806972e-14,
+      "tolerance_change": 3.503775761798567e-11
+    },
+    {
+      "r": 1.1,
+      "d": 4.2,
+      "interval": 3,
+      "height": 0.2,
+      "relative_error": 2.756858395959627e-13,
+      "tolerance_change": 2.388563899336906e-10
+    },
+    {
+      "r": 1.1,
+      "d": 4.2,
+      "interval": 3,
+      "height": 0.6,
+      "relative_error": 1.6842381654471969e-13,
+      "tolerance_change": 9.220208360576271e-11
+    },
+    {
+      "r": 2.0,
+      "d": 2.0,
+      "interval": 1,
+      "height": 0.2,
+      "relative_error": 7.182732848844266e-14,
+      "tolerance_change": 2.6803930953497494e-11
+    },
+    {
+      "r": 2.0,
+      "d": 2.0,
+      "interval": 1,
+      "height": 0.6,
+      "relative_error": 7.77095295226006e-14,
+      "tolerance_change": 2.4948465971670083e-11
+    },
+    {
+      "r": 2.0,
+      "d": 4.0,
+      "interval": 2,
+      "height": 0.2,
+      "relative_error": 2.2146444352376548e-13,
+      "tolerance_change": 8.009084020512657e-11
+    },
+    {
+      "r": 2.0,
+      "d": 4.0,
+      "interval": 2,
+      "height": 0.6,
+      "relative_error": 1.3602227892719133e-13,
+      "tolerance_change": 4.275836885677204e-11
+    },
+    {
+      "r": 2.0,
+      "d": 6.0,
+      "interval": 3,
+      "height": 0.2,
+      "relative_error": 5.752094489938311e-13,
+      "tolerance_change": 2.851499446174039e-10
+    },
+    {
+      "r": 2.0,
+      "d": 6.0,
+      "interval": 3,
+      "height": 0.6,
+      "relative_error": 2.726209452310159e-13,
+      "tolerance_change": 1.25077385766321e-10
+    },
+    {
+      "r": 10.0,
+      "d": 10.0,
+      "interval": 1,
+      "height": 0.2,
+      "relative_error": 7.207794512501585e-14,
+      "tolerance_change": 5.887335252473595e-11
+    },
+    {
+      "r": 10.0,
+      "d": 10.0,
+      "interval": 1,
+      "height": 0.6,
+      "relative_error": 6.058293345543833e-14,
+      "tolerance_change": 3.7683145059296926e-11
+    },
+    {
+      "r": 10.0,
+      "d": 20.0,
+      "interval": 2,
+      "height": 0.2,
+      "relative_error": 2.6063066785832187e-13,
+      "tolerance_change": 3.5731143617371804e-11
+    },
+    {
+      "r": 10.0,
+      "d": 20.0,
+      "interval": 2,
+      "height": 0.6,
+      "relative_error": 2.455580335243598e-13,
+      "tolerance_change": 1.1796150673007545e-10
+    },
+    {
+      "r": 10.0,
+      "d": 22.0,
+      "interval": 3,
+      "height": 0.2,
+      "relative_error": 6.492673556119392e-13,
+      "tolerance_change": 2.2184208684186016e-10
+    },
+    {
+      "r": 10.0,
+      "d": 22.0,
+      "interval": 3,
+      "height": 0.6,
+      "relative_error": 1.0766784894347294e-13,
+      "tolerance_change": 8.421923016105258e-11
+    }
+  ],
+  "maximum_relative_error": 8.681815358088332e-11
+}

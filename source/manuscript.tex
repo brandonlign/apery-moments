@@ -1,0 +1,481 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype,booktabs}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,
+ pdftitle={Stieltjes moment classification of Apery polynomials},
+ pdfauthor={Brandon Li and Ethan Yeroushalmi}}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\title{Stieltjes moment classification of Ap\'ery polynomials}
+\author{Brandon Li \and Ethan Yeroushalmi\\[0.35em]
+ \normalsize Independent researchers, Great Neck, New York, USA\\[0.2em]
+ \normalsize Corresponding author: Brandon Li,
+ \href{mailto:brandon.li.gn@gmail.com}{brandon.li.gn@gmail.com}}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove that the Ap\'ery polynomials
+$A_n(x)=\sum_{k=0}^n\binom nk^2\binom{n+k}k^2x^k$ form a Stieltjes
+moment sequence in $n$, for real $x\ge0$, exactly when $x=0$ or $x\ge1$.
+This settles Sokal's conjecture for real parameters; the case $x=1$ is
+Edgar's theorem on the Ap\'ery numbers. Both directions start from a
+single representation of $A_n(x)$ as the Legendre moments of an explicit
+probability law on two angles. For $0<x<1$, a Stieltjes representation
+would force the part of this law below $1$ to have a real-analytic
+density. The law instead has a support gap when $x<1/4$, a saddle
+singularity when $1/4<x<1$, and a degenerate endpoint at $x=1/4$, so no
+such representation exists. For $x>1$, the same part of the law has a
+density given by a complete elliptic integral. We continue it to the plane
+cut along $[1,\infty)$, show that its jump across the cut is positive,
+and recover it by Cauchy's formula, using a uniform bound on large
+circles. Heine's integral for the Legendre functions $Q_n$ then turns the
+remaining Legendre moments into the power moments of a positive measure
+on $[0,1]$. We also give exact rational certificates showing that, for
+each $0<x\le2/3$, one of four explicit Hankel minors is negative.
+\end{abstract}
+\noindent\textbf{Keywords:} Ap\'ery polynomials; Stieltjes moment problem;
+Legendre polynomials; elliptic integrals; Hankel matrices.
+
+\smallskip\noindent\textbf{Mathematics Subject Classification (2020):}
+Primary 44A60; Secondary 33C45, 33E05, 15B05.
+
+\section{Introduction}
+A real sequence $(a_n)_{n\ge0}$ is a \emph{Stieltjes moment sequence} if
+$a_n=\int_0^\infty t^n\,d\nu(t)$ for a positive Borel measure $\nu$.
+Define
+\begin{equation}\label{eq:apery}
+ A_n(x)=\sum_{k=0}^n\binom nk^2\binom{n+k}k^2x^k.
+\end{equation}
+Wang and Zhu posed moment questions for generalized Ap\'ery polynomials,
+including the family \eqref{eq:apery} \cite[Section 5]{WangZhu}.
+Sokal recorded the case $x\ge1$ as an open problem \cite{Sokal2018} and
+later conjectured that $(A_n(x))_{n\ge0}$ is a Stieltjes moment sequence
+for every $x\ge1$ and is not one for $0<x<1$ \cite[slide 29]{Sokal}.
+Edgar proved the case $x=1$ \cite{Edgar}. Our main result is the full
+classification for real parameters.
+\begin{theorem}\label{thm:classification}
+For real $x\ge0$, $(A_n(x))_{n\ge0}$ is a Stieltjes moment sequence
+if and only if $x=0$ or $x\ge1$.
+\end{theorem}
+Sokal's stronger conjecture, that the Hankel matrix of
+$(A_n(1+x))_{n\ge0}$ is coefficientwise totally positive as a matrix of
+polynomials in $x$, remains open.
+
+\subsection{Outline of the proof}
+Throughout, $P_n$ is the Legendre polynomial and $r=\sqrt{x}$. Both
+ranges of $x$ are handled through the identity
+$A_n(x)=\int P_n(y)\,d\mu_r(y)$ of Section~\ref{sec:average}, where
+$\mu_r$ is an explicit probability measure with compact support. The part
+of $\mu_r$ on $[1,\infty)$ already gives positive power moments, by
+Laplace's integral for $P_n$. Everything therefore depends on the part
+on $[-1,1)$.
+
+For $0<r<1$, the Poisson kernel for Legendre series shows that a
+Stieltjes representation would force this part to have a real-analytic
+density (Section~\ref{sec:regularity}). The geometry of $\mu_r$ rules
+this out: its support has a gap when $r<1/2$, it has a saddle
+singularity when $r>1/2$, and it has a quartic endpoint when $r=1/2$
+(Section~\ref{sec:negative}). For $r>1$, the density is a complete
+elliptic integral. We continue it to the plane cut along $[1,\infty)$,
+compute its jump across the cut, which is positive, and recover the
+density by Cauchy's formula. The classical $Q_n$ transform then turns the
+remaining Legendre moments into power moments of a positive measure on
+$[0,1]$ (Section~\ref{sec:positive}). Section~\ref{sec:hankel} gives
+exact Hankel certificates for $0<x\le2/3$ and explains why no fixed
+finite test can cover the whole interval $(0,1)$.
+
+\subsection{Related work}
+Common showed that Legendre series with Stieltjes coefficients continue
+to a cut plane, and that positive mixtures of the functions $Q_n$ give
+Stieltjes moment sequences \cite[CERN preprint, Theorems 2--3 and 5]{Common};
+he notes that Yndurain found the second result independently. We give
+the finite-measure and endpoint details needed in our setting. The new
+ingredients are the geometric obstruction for $0<x<1$ and the elliptic
+boundary calculation for $x>1$.
+
+At $x=1$, our angular representation reduces to a formula attributed to
+Lupa\c{s} (2005) and proved by Ivanisvili in 2014 \cite{Lupas}; the
+product and generating-function identities behind it are classical.
+Matala-aho derived a recurrence for the same polynomials
+\cite[Theorem~2]{MatalaAho}, and Neuschel studied their asymptotics and
+the distribution of their zeros \cite{Neuschel}; we do not need either
+result. Zhu and Sun studied arithmetic properties of the Hankel
+determinants of the Ap\'ery numbers \cite{ZhuSun}.
+
+\section{A regularity obstruction}\label{sec:regularity}
+The Legendre polynomials are normalized by $P_n(1)=1$.
+We first record the consequence of the Poisson kernel that we need.
+\begin{lemma}\label{lem:regularity}
+Let $\mu$ be a finite positive measure supported on $[-1,H]$, where $H\ge1$.
+If $a_n=\int P_n(y)\,d\mu(y)$ is a Stieltjes moment sequence, then
+$\mu|_{[-1,1)}$ has a density real analytic on $(-1,1)$ and bounded in a
+right neighborhood of $-1$.
+\end{lemma}
+\begin{proof}
+For $y\ge1$, Laplace's integral representation gives
+\begin{equation}\label{eq:laplace}
+ P_n(y)=\frac1\pi\int_0^\pi
+ \bigl(y+\sqrt{y^2-1}\cos\phi\bigr)^n\,d\phi.
+\end{equation}
+Hence the contribution from $[1,H]$ is the moment sequence of a finite positive
+measure $\nu_+$ on $[0,R]$, where we may take
+$R=\max\{2,H+\sqrt{H^2-1}\}$.
+Since $|P_n(y)|\le1$ on $[-1,1]$ and $|P_n(y)|\le R^n$ on $[1,H]$,
+we have $|a_n|\le\mu([-1,H])R^n$.
+Any positive Stieltjes measure $\nu$ representing $(a_n)$ must therefore be
+supported on $[0,R]$: positive mass beyond $R+\delta$, for any $\delta>0$,
+would contradict this exponential bound.
+
+The finite signed measure $\sigma=\nu-\nu_+$ has moments
+\begin{equation}\label{eq:bn}
+ b_n=\int_{[-1,1)}P_n(y)\,d\mu(y),\qquad |b_n|\le\mu([-1,1)).
+\end{equation}
+These bounds force $\sigma$ to be supported on $[0,1]$, even though $\sigma$
+need not be positive. Indeed, its Cauchy transform agrees, for $|z|>R$, with
+$\sum_{n\ge0}b_n z^{-n-1}$. The series is holomorphic on $|z|>1$, so by
+the identity theorem the two functions agree on
+$\{\operatorname{Im}z>0,\ |z|>1\}$, and likewise in the lower
+half-plane. The series is real on $(1,\infty)$.
+The Stieltjes inversion formula, which holds for finite signed measures by
+dominated convergence against $|\sigma|$, therefore gives $\sigma(I)=0$ for
+every interval $I\subset(1,\infty)$ whose endpoints are not atoms of $\sigma$.
+Such intervals exhaust $(1,\infty)$, so $\sigma$ vanishes there.
+
+For $0\le s<1$ put
+\begin{equation}\label{eq:kernel}
+ K(s,y)=\frac{1-s^2}{2(1-2sy+s^2)^{3/2}},\qquad -1\le y\le1.
+\end{equation}
+The generating function for $P_n$, followed by differentiation and
+orthogonality, gives
+\[
+ K(s,y)=\frac12\sum_{n\ge0}(2n+1)s^nP_n(y),\qquad
+ \int_{-1}^1P_n(y)K(s,y)\,dy=s^n.
+\]
+In particular, $K(s,y)\,dy$ is a probability measure. For $s=1$ use
+$\delta_1$ instead. Integrating these measures against $\sigma$ produces a
+signed measure $\eta$ of total variation at most $|\sigma|([0,1])$.
+Fubini's theorem applies because $|P_n|\le1$ on $[-1,1]$, and shows
+that the Legendre moments of $\eta$ are the $b_n$.
+Since the Legendre polynomials span all polynomials, uniqueness of finite
+signed measures on this compact interval implies
+$\eta=\mu|_{[-1,1)}$.
+
+Since $\mu|_{[-1,1)}$ has no mass at $1$, the atom
+$\sigma(\{1\})\delta_1$ vanishes, and $\mu|_{[-1,1)}$ has density
+$\int_{[0,1)}K(s,y)\,d\sigma(s)$.
+For each real $y_0<1$, $1-2sy_0+s^2$ has a positive minimum over
+$0\le s\le1$. Thus the kernels are holomorphic and uniformly bounded in a
+small complex neighborhood of $y_0$. Integration against the finite signed
+measure preserves holomorphy. This proves analyticity on $(-1,1)$ and,
+by taking $y_0=-1$, boundedness near the left endpoint.
+\end{proof}
+
+\section{The angular representation}\label{sec:average}
+The classical identities used in this section follow from the Legendre
+addition theorem and integral representations; see \cite{DLMF}.
+The finite expansion
+\[
+ P_n(1+2z)=\sum_{k=0}^n\binom nk\binom{n+k}k z^k
+\]
+and Parseval's identity imply, with $r=\sqrt{x}$,
+\begin{equation}\label{eq:parseval}
+ A_n(x)=\E_t\left|P_n(1+2r e^{it})\right|^2,
+\end{equation}
+where $t$ is uniform on $[0,2\pi]$.
+The Legendre product formula is
+\begin{equation}\label{eq:product}
+ P_n(a)P_n(b)=\frac1\pi\int_0^\pi
+ P_n\left(ab+\sqrt{a^2-1}\sqrt{b^2-1}\cos\theta\right)d\theta.
+\end{equation}
+Although initially stated for real arguments, this is a polynomial identity
+in $a,b$: after integration, only even powers of the product of square roots
+remain. It therefore extends to complex arguments and is independent of the
+choices of square roots. For $b=\overline a$, choose conjugate square roots.
+Equations \eqref{eq:parseval}--\eqref{eq:product} yield
+\begin{equation}\label{eq:average}
+ A_n(x)=\E P_n(Y_r),
+\end{equation}
+where $t,\theta$ are independent and uniform on $[0,2\pi]$, and
+\begin{equation}\label{eq:Y}
+ Y_r=1+4r^2+4r\cos t
+       +4r\sqrt{1+2r\cos t+r^2}\cos\theta.
+\end{equation}
+(Taking $\theta$ uniform on $[0,2\pi]$ rather than $[0,\pi]$ does not
+change the distribution of $\cos\theta$.)
+Writing $a=1+2r e^{it}$, we have
+$Y_r=|a|^2+|a^2-1|\cos\theta$. Since $|a^2-1|\le|a|^2+1$,
+$|a|\le1+2r$ and $|a^2-1|=4r|1+re^{it}|\le4r(1+r)$, we have
+\begin{equation}\label{eq:range}
+ -1\le Y_r\le1+8r^2+8r.
+\end{equation}
+For $0<r<1$, the square root in \eqref{eq:Y} is strictly positive and smooth.
+
+When $r=1$, substituting $t=2\alpha$ in \eqref{eq:Y}
+gives the same distribution as
+$1+8\cos^2\alpha+8\cos\alpha\sin\beta$ with independent uniform angles:
+the absolute value of $\cos\alpha$ is absorbed by symmetry in the second
+angle. This is the formula of Lupa\c{s} \cite{Lupas}; the proof does not
+use it.
+
+\section{Failure on \texorpdfstring{$0<x<1$}{0<x<1}}\label{sec:negative}
+\begin{theorem}\label{thm:main}
+For every fixed real $x$ with $0<x<1$, the sequence
+$(A_n(x))_{n\ge0}$ is not a Stieltjes moment sequence.
+\end{theorem}
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Fix $0<r<1$, and suppose that $(A_n(x))_{n\ge0}$ is a Stieltjes moment
+sequence.
+Lemma~\ref{lem:regularity} applies to the distribution $\mu_r$ of $Y_r$.
+Set
+\[
+ h=1+8r^2-8r.
+\]
+At $(t,\theta)=(\pi,\pi)$, $Y_r=h<1$, so by continuity the law has
+positive mass below $1$. We distinguish three cases.
+
+\medskip\noindent\textbf{Case 1: $0<r<1/2$.}
+For $c=\cos t$, the lower endpoint as $\theta$ varies is
+\[
+ f(c)=1+4r^2+4rc-4r\sqrt{1+2rc+r^2}.
+\]
+Since
+\[
+ f'(c)=4r\left(1-\frac{r}{\sqrt{1+2rc+r^2}}\right)>0,
+ \qquad -1\le c\le1,
+\]
+where $\sqrt{1+2rc+r^2}\ge1-r>r$, the global lower endpoint is
+$f(-1)=h\in(-1,1)$. Thus $\mu_r$ vanishes on $(-1,h)$ but has positive
+mass in $(h,1)$. The analytic density furnished by Lemma~\ref{lem:regularity}
+would vanish identically on the connected interval $(-1,1)$, a contradiction.
+
+\medskip\noindent\textbf{Case 2: $1/2<r<1$.}
+Let $u=t-\pi$ and $v=\theta-\pi$. Expanding about this interior point of
+the torus gives
+\begin{equation}\label{eq:hessian}
+ Y_r=h+\frac{2r(1-2r)}{1-r}u^2+2r(1-r)v^2
+        +O\bigl((|u|+|v|)^4\bigr).
+\end{equation}
+The two quadratic coefficients are nonzero and have opposite signs.
+The Morse lemma supplies local smooth coordinates, with a bounded positive
+Jacobian, in which $Y_r-h=U^2-V^2$. After a further invertible linear change,
+this is the product of the coordinates. In a fixed small square the region
+where the absolute value of that product is at most $\epsilon$ has area
+at least $c\epsilon\log(1/\epsilon)$ for all sufficiently small
+$\epsilon>0$. Since $t$ and $\theta$ are uniformly distributed, it follows
+that
+\[
+ \mu_r([h-\epsilon,h+\epsilon])
+       \ge c'\epsilon\log(1/\epsilon).
+\]
+Since $h\in(-1,1)$, this contradicts the $O(\epsilon)$ bound required
+by a density bounded near $h$.
+
+\medskip\noindent\textbf{Case 3: $r=1/2$.}
+Now $h=-1$ and direct expansion gives
+\begin{equation}\label{eq:quartic}
+ Y_{1/2}=-1+\tfrac12(u^4+v^2)
+                 +O(u^6+u^2v^2+v^4).
+\end{equation}
+Together with \eqref{eq:range}, this implies
+$0\le Y_{1/2}+1\le C(u^4+v^2)$ locally.
+For a sufficiently small fixed $c>0$, the rectangle
+\[
+ |u|\le c\epsilon^{1/4},\qquad |v|\le c\epsilon^{1/2}
+\]
+is mapped into $[-1,-1+\epsilon]$. It has probability at least
+$c'\epsilon^{3/4}$. This contradicts the $O(\epsilon)$ mass bound
+from the density bounded near $-1$ in Lemma~\ref{lem:regularity}.
+The three cases cover $0<x=r^2<1$.
+\end{proof}
+
+
+\input{positive_section.tex}
+
+\section{Hankel certificates and fixed-size tests}\label{sec:hankel}
+We now give exact sign certificates on an interval of parameters. Define
+\[
+ H_{d,s}(x)=\det\bigl(A_{i+j+s}(x)\bigr)_{0\le i,j<d},\qquad s\in\{0,1\}.
+\]
+\begin{proposition}\label{prop:finite}
+For every $0<x\le2/3$, at least one of
+$H_{4,0}(x),H_{8,0}(x),H_{9,1}(x),H_{10,0}(x)$ is strictly negative.
+\end{proposition}
+\begin{proof}
+Table~\ref{tab:certificates} gives exact sign certificates. For each row,
+$Q(x)=H_{d,s}(x)/x^v$ is a polynomial of degree $N$.
+
+\begin{table}[ht]
+\centering
+\caption{Intervals and polynomial degrees for the negative-minor certificates.}
+\label{tab:certificates}
+\begin{tabular}{ccccc}
+\toprule
+$(d,s)$ & $a$ & $b$ & $v$ & $N$\\[2pt]
+\midrule
+$(4,0)$ & $0$ & $9/100$ & $3$ & $9$\\
+$(8,0)$ & $1/20$ & $101/500$ & $14$ & $42$\\
+$(9,1)$ & $201/1000$ & $47/100$ & $18$ & $63$\\
+$(10,0)$ & $41/100$ & $2/3$ & $23$ & $67$
+\\\bottomrule
+\end{tabular}
+\end{table}
+
+Writing $Q(a+(b-a)t)=\sum_{j=0}^N c_jt^j$, its Bernstein coefficients are
+\[
+ \beta_k=\sum_{j=0}^k c_j\frac{\binom{k}{j}}{\binom{N}{j}},
+ \qquad 0\le k\le N.
+\]
+In each of the four rows, every $\beta_k$ is a strictly negative rational
+number. The supplementary material records all coefficients; its
+verifier recomputes the determinants over $\mathbb Q[x]$, verifies their
+valuations and degrees, checks each rational sign, and reconstructs
+\[
+ Q(a+(b-a)t)=\sum_{k=0}^N\beta_k\binom Nk t^k(1-t)^{N-k}.
+\]
+The Bernstein basis is nonnegative and sums to one on $[0,1]$, proving
+$Q<0$ throughout $[a,b]$. Hence $H_{d,s}<0$ on that interval wherever
+$x>0$. The four intervals overlap and cover $(0,2/3]$.
+\end{proof}
+
+\subsection{Finite tests near \texorpdfstring{$x=1$}{x=1}}
+No fixed finite set of Hankel minors detects every parameter in
+$(0,1)$. Indeed, Edgar's theorem \cite[Theorem 1]{Edgar} provides a nonzero
+positive integrable moment density at $x=1$. For any fixed $d$ and
+$s\in\{0,1\}$, and any nonzero real vector $v$,
+\[
+ \sum_{i,j=0}^{d-1}v_i v_j A_{i+j+s}(1)
+ =\int_0^\infty t^s\left(\sum_{i=0}^{d-1}v_i t^i\right)^2d\nu(t)>0.
+\]
+A nonzero polynomial has finitely many zeros, whereas the absolutely
+continuous measure cannot be supported there. Thus each fixed Hankel
+matrix is positive definite at $x=1$, and by continuity any finite
+collection of them, or of their principal submatrices, stays positive
+definite in a neighborhood of $1$. At each $x\in(0,1)$,
+Theorem~\ref{thm:main} gives a negative principal minor of the ordinary
+or shifted Hankel matrix, but it does not say which minor or bound its
+size.
+
+\subsection{Shifted Hankel matrices}
+\begin{proposition}\label{prop:shifts}
+For every fixed $x>0$ and positive integer $d$, the matrix
+$(A_{N+i+j}(x))_{0\le i,j<d}$ is positive definite for all sufficiently
+large integers $N$.
+\end{proposition}
+\begin{proof}
+Use \eqref{eq:average} and the Laplace representation \eqref{eq:laplace}
+to write $A_n(x)=a_n+b_n$, where $a_n=\int t^n\,d\nu_+(t)$ is the
+positive moment contribution from $Y\ge1$, and $|b_n|\le1$ is the
+contribution from $-1\le Y<1$. Put $r=\sqrt{x}$,
+$H=1+8r^2+8r>1$ and $R=H+\sqrt{H^2-1}>1$.
+The law of $Y$ has positive mass arbitrarily close to its maximum $H$,
+attained at $t=\theta=0$ in \eqref{eq:Y}. In the Laplace representation,
+varying its independent cosine angle gives $\nu_+$ infinite support
+arbitrarily close to $R$. Choose $1<c<R$ so that $\nu_+|_{[c,R]}$
+has infinite support. Its degree-$(d-1)$ Gram matrix
+\[
+ G=\left(\int_{[c,R]}t^{i+j}\,d\nu_+(t)\right)_{0\le i,j<d}
+\]
+is strictly positive definite, since a nonzero polynomial cannot vanish
+on that support. Write $\lambda=\lambda_{\min}(G)>0$.
+The matrix $(a_{N+i+j})$ dominates $c^NG$ in positive-semidefinite order,
+whereas $(b_{N+i+j})$ has operator norm at most $d$. Hence
+\[
+ \lambda_{\min}\bigl((A_{N+i+j}(x))_{0\le i,j<d}\bigr)
+ \ge c^N\lambda-d>0
+\]
+for all sufficiently large $N$.
+\end{proof}
+Thus fixed-size tests at increasingly large shifts become positive on
+both sides of the parameter threshold. The cutoff may depend on $x$ and $d$.
+
+\section*{Supplementary information}
+The supplementary material contains Python scripts and the exact rational
+certificates for Proposition~\ref{prop:finite}, checks of the algebraic
+identities used in the proofs, and high-precision numerical checks of the
+elliptic continuation and the dispersion formula.
+
+\section*{Statements and Declarations}
+\paragraph{Funding.} No funding was received for this work.
+
+\paragraph{Competing interests.} The authors have no relevant financial or
+non-financial interests to disclose.
+
+\paragraph{Author contributions.} Brandon Li carried out the research and
+prepared the manuscript. Ethan Yeroushalmi checked the proofs and
+computations and edited the text. Both authors read and approved the final
+manuscript.
+
+\paragraph{Use of AI tools.} The authors used Claude Opus~5.5 (Anthropic),
+through Claude Code version 2.1.317, to explore proof strategies, carry out
+and check derivations and symbolic computations, write the verification
+code, search the literature, and draft and edit the text. The authors take
+full responsibility for the content, including the proofs, computations and
+references.
+
+\paragraph{Data availability.} The verification scripts and certificate
+data are available at \url{https://doi.org/10.5281/zenodo.24022053} and as
+supplementary material. No other data were used.
+
+\begin{thebibliography}{10}
+\providecommand{\doi}[1]{\url{https://doi.org/#1}}
+
+\bibitem{Common}
+Common, A.K.: Properties of Legendre expansions related to series of
+Stieltjes and applications to $\pi$--$\pi$ scattering. Nuovo Cimento A
+\textbf{63}, 863--891 (1969). \doi{10.1007/BF02760744}. Preprint
+version: CERN TH.1034 (1969).
+\url{https://cds.cern.ch/record/348575/files/CM-P00058257.pdf}
+
+\bibitem{Lupas}
+Edgar, G.A.: A conjectured formula for Ap\'ery numbers. MathOverflow,
+question 178790 (2014), with an answer by P.~Ivanisvili.
+\url{https://mathoverflow.net/questions/178790}. Accessed 7 November 2026
+
+\bibitem{Edgar}
+Edgar, G.A.: The Ap\'ery numbers as a Stieltjes moment sequence.
+Preprint at \url{https://arxiv.org/abs/2005.10733} (2020)
+
+\bibitem{MatalaAho}
+Matala-aho, T.: On recurrences for some hypergeometric type polynomials.
+Ast\'erisque \textbf{198--200}, 237--244 (1991)
+
+\bibitem{Neuschel}
+Neuschel, T.: Ap\'ery polynomials and the multivariate saddle point
+method. Constr. Approx. \textbf{40}, 487--507 (2014).
+\doi{10.1007/s00365-014-9245-3}
+
+\bibitem{DLMF}
+Olver, F.W.J., Olde Daalhuis, A.B., Lozier, D.W., Schneider, B.I.,
+Boisvert, R.F., Clark, C.W., Miller, B.R., Saunders, B.V., Cohl, H.S.,
+McClain, M.A. (eds.): NIST Digital Library of Mathematical Functions.
+Release 1.2.8 of 2026-09-15. \url{https://dlmf.nist.gov/}
+
+\bibitem{Sokal2018}
+Sokal, A.D.: The Euler and Springer numbers as moment sequences. Expo.
+Math. \textbf{38}, 1--26 (2020). \doi{10.1016/j.exmath.2018.08.001}
+
+\bibitem{Sokal}
+Sokal, A.D.: Stieltjes moment sequences and coefficientwise Hankel-total
+positivity in enumerative combinatorics. Lecture at Guttmann80, 1 July
+2025. \url{https://clisby.net/guttmann2025/talks/Alan_Sokal.pdf}.
+Accessed 7 November 2026
+
+\bibitem{WangZhu}
+Wang, Y., Zhu, B.-X.: Log-convex and Stieltjes moment sequences. Adv.
+Appl. Math. \textbf{81}, 115--127 (2016). \doi{10.1016/j.aam.2016.06.008}
+
+\bibitem{ZhuSun}
+Zhu, B.-X., Sun, Z.-W.: Hankel-type determinants for some combinatorial
+sequences. Int. J. Number Theory \textbf{14}, 1265--1277 (2018).
+\doi{10.1142/S1793042118500793}
+
+\end{thebibliography}
+\end{document}
