@@ -25,9 +25,12 @@
 We prove that the Ap\'ery polynomials
 $A_n(x)=\sum_{k=0}^n\binom nk^2\binom{n+k}k^2x^k$ form a Stieltjes
 moment sequence in $n$, for real $x\ge0$, exactly when $x=0$ or $x\ge1$.
-This settles Sokal's conjecture for real parameters; the case $x=1$ is
-Edgar's theorem on the Ap\'ery numbers. Both directions start from a
-single representation of $A_n(x)$ as the Legendre moments of an explicit
+Knowledge Sense (2026) had already proved the positive range $x\ge1$,
+extending Edgar's theorem at $x=1$. The new contribution here is to
+exclude the remaining interval $0<x<1$, thereby completing the
+classification for $x\ge0$. Our separate positive-range argument is
+an alternative proof, not a priority claim. Both arguments start from a
+representation of $A_n(x)$ as the Legendre moments of an explicit
 probability law on two angles. For $0<x<1$, a Stieltjes representation
 would force the part of this law below $1$ to have a real-analytic
 density. The law instead has a support gap when $x<1/4$, a saddle
@@ -59,8 +62,12 @@ including the family \eqref{eq:apery} \cite[Section 5]{WangZhu}.
 Sokal recorded the case $x\ge1$ as an open problem \cite{Sokal2018} and
 later conjectured that $(A_n(x))_{n\ge0}$ is a Stieltjes moment sequence
 for every $x\ge1$ and is not one for $0<x<1$ \cite[slide 29]{Sokal}.
-Edgar proved the case $x=1$ \cite{Edgar}. Our main result is the full
-classification for real parameters.
+Edgar proved the case $x=1$ \cite{Edgar}. Knowledge Sense then proved
+the entire positive range $x\ge1$ in an October 2026 preprint
+\cite{KnowledgeSense}. We establish the previously unresolved
+non-Stieltjes range $0<x<1$, which completes the classification
+for real $x\ge0$. The proof below of the positive direction
+provides a separate route to an already-established theorem.
 \begin{theorem}\label{thm:classification}
 For real $x\ge0$, $(A_n(x))_{n\ge0}$ is a Stieltjes moment sequence
 if and only if $x=0$ or $x\ge1$.
@@ -83,8 +90,9 @@ Stieltjes representation would force this part to have a real-analytic
 density (Section~\ref{sec:regularity}). The geometry of $\mu_r$ rules
 this out: its support has a gap when $r<1/2$, it has a saddle
 singularity when $r>1/2$, and it has a quartic endpoint when $r=1/2$
-(Section~\ref{sec:negative}). For $r>1$, the density is a complete
-elliptic integral. We continue it to the plane cut along $[1,\infty)$,
+(Section~\ref{sec:negative}). For completeness we also provide an independent proof for $r>1$,
+where the density is a complete elliptic integral. We continue it
+to the plane cut along $[1,\infty)$,
 compute its jump across the cut, which is positive, and recover the
 density by Cauchy's formula. The classical $Q_n$ transform then turns the
 remaining Legendre moments into power moments of a positive measure on
@@ -93,13 +101,30 @@ exact Hankel certificates for $0<x\le2/3$ and explains why no fixed
 finite test can cover the whole interval $(0,1)$.
 
 \subsection{Related work}
+\paragraph{Prior proof of the positive range and scope of novelty.}
+Knowledge Sense, \emph{Ap\'ery polynomials as Stieltjes moment sequences}
+\cite{KnowledgeSense}, dated 13 October 2026 and first committed publicly
+on 14 October 2026, proves that $(A_n(x))_{n\ge0}$ is a Stieltjes
+moment sequence for every real $x\ge1$ and constructs an explicitly
+positive compactly supported density. Its manuscript explicitly
+leaves the conjectured failure for $0<x<1$ unresolved.
+Accordingly, our theorem for $x>1$ is an alternative proof, not
+the first proof of that direction. Our distinct result is
+nonexistence of a positive Stieltjes representing measure on
+$0<x<1$, which completes the real nonnegative-parameter
+classification when combined with earlier work. The finite
+Hankel-minor certificates for $0<x\le2/3$ provide additional
+explicit obstructions; their separate priority has not been
+established by this comparison.
+
 Common showed that Legendre series with Stieltjes coefficients continue
 to a cut plane, and that positive mixtures of the functions $Q_n$ give
 Stieltjes moment sequences \cite[CERN preprint, Theorems 2--3 and 5]{Common};
 he notes that Yndurain found the second result independently. We give
-the finite-measure and endpoint details needed in our setting. The new
-ingredients are the geometric obstruction for $0<x<1$ and the elliptic
-boundary calculation for $x>1$.
+the finite-measure and endpoint details needed in our setting.
+The geometric obstruction for $0<x<1$ is our main novelty claim;
+the elliptic boundary calculation for $x>1$ is a distinct proof
+of a previously established positivity result.
 
 At $x=1$, our angular representation reduces to a formula attributed to
 Lupa\c{s} (2005) and proved by Ivanisvili in 2014 \cite{Lupas}; the
@@ -424,7 +449,7 @@ references.
 data are available at \url{https://doi.org/10.5281/zenodo.24022053} and as
 supplementary material. No other data were used.
 
-\begin{thebibliography}{10}
+\begin{thebibliography}{11}
 \providecommand{\doi}[1]{\url{https://doi.org/#1}}
 
 \bibitem{Common}
@@ -442,6 +467,13 @@ question 178790 (2014), with an answer by P.~Ivanisvili.
 \bibitem{Edgar}
 Edgar, G.A.: The Ap\'ery numbers as a Stieltjes moment sequence.
 Preprint at \url{https://arxiv.org/abs/2005.10733} (2020)
+
+\bibitem{KnowledgeSense}
+Knowledge Sense: Ap\'ery polynomials as Stieltjes moment sequences.
+Preprint dated 13 October 2026; GitHub repository committed
+14 October 2026.
+\url{https://github.com/KnowledgeSense/math/tree/main/preprints/Apery-Polynomials-as-Stieltjes-Moment-Sequences-October-13-2026}.
+Accessed 22 November 2026.
 
 \bibitem{MatalaAho}
 Matala-aho, T.: On recurrences for some hypergeometric type polynomials.
