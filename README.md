@@ -32,9 +32,10 @@ python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
 PYTHON=.venv/bin/python sh run_checks.sh
 sh source/build.sh
+cp build/manuscript.pdf manuscript.pdf  # replace the tracked PDF locally
 ```
 
-The PDF builds with Tectonic or `pdflatex`. The checked-in `manuscript.pdf` must be regenerated from the corrected source before being circulated as a revised manuscript.
+The PDF builds with Tectonic or `pdflatex`. The checked-in `manuscript.pdf` is not yet regenerated; after running these commands, review the PDF and commit the refreshed binary before circulating it as a revised manuscript.
 
 ## License
 
